@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\title{Project 1}
+\author{Kate Plas}
+\date{\today} 
+
+\begin{document}
+
+\maketitle
+
+Many people are interested in setting goals and recording their activities. In this project you will design an interactive user interface for a goal tracking and journaling website that will allow people to keep track of their goals and regular activities. You can choose to focus your goal tracking site on one of the following themes, propose your own theme or choose a general journaling approach. I have some suggested things folks may want to track for different categories of activities:
+
+We are going to be implementing these features on a webpage, which is presented on a desktop environment. This project must be completed in Javascript and Svelte. You may use external libraries and toolkits—just document which. Please do not implement a database or a backend. You can do all the project goals through flat files and client-side code. Please do not implement a login page—it is not necessary and not the interesting design challenge for the class.
+
+\section*{Project Setup:}
+You will complete this project in several phases. This project will emphasize design somewhat less than future projects and have a smaller presentation component.
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Design (10\%):} Gathering design requirements, Sketching design alternatives, Sketching design prototype
+    \item \textbf{Implementation (60\%):} The implemented application
+    \item \textbf{Documentation and Video Demo (25\%):} Your project
+    \item \textbf{Presentation (5\%):} mini presentation
+\end{enumerate}
+
+\section*{Project Timeline:}
+\textbf{Week 1, Aug 26-Sept 1:}
+\begin{itemize}
+    \item Choose a theme or focus for your journaling/tracking UI—this is entirely up to you.
+    \item Conduct interviews and identify goals/tasks.
+    \item Learning web basics (Tutorials 1-4, assignment 1b)
+\end{itemize}
+
+\textbf{Week 2, Sept 2-Sept 8: Learn Svelte, Sketch brainstorming, Sketch the UI, Begin Level 1 implementation goals}
+\begin{itemize}
+    \item Advanced Javascript and Svelte (Tutorial 5 and Svelte tutorial, assignment 2)
+    \item Sketch brainstorming and Sketch the Interface (Covered in-class week 2)
+    \item Begin Level 1 implementation goals
+\end{itemize}
+
+\textbf{Week 3, Sept 9-Sept 15:}
+\begin{itemize}
+    \item Get feedback on your interface sketch
+    \item Level 1 and Level 2 implementation goals
+\end{itemize}
+
+\textbf{Week 4, Sept 16-Sept 20:}
+\begin{itemize}
+    \item Level 2 and Level 3 goals; or Level 3 and Level 4 goals
+    \item Documentation, record video
+\end{itemize}
+
+\section*{Project Requirements:}
+
+% -----------------------------------------------------------------------------------------------
+\subsection*{Design}
+\begin{enumerate}
+    \item Interview 2 people about journaling and tracking, with a focus on your chosen set of themes.
+    \begin{itemize}
+        \item \textbf{What do you hope to learn from these interviews?}
+        \begin{itemize}
+            \item By interviewing potential users, I hope to learn their needs and goals for tracking instrument practice to inform user interface design.
+        \end{itemize}
+        
+        \item \textbf{What questions did you ask?}
+        \begin{itemize}
+            \item How do you usually keep track of your goals?
+            \item What type of metrics do you want to record about each practice session?
+            \item What historical practice data would you like to view to observe your progress?
+            \item What goals do you focus on in music practice?
+        \end{itemize}
+        
+        \item \textbf{What did your interview participants tell you? What did you learn from them?}
+        \begin{itemize}
+            \item One person said they wanted to get a score for how well they played the music by tracking the percent of correct notes.
+            \item Another interviewee wanted to be able to record and save their final music piece and be able to retrieve it.
+            \item Both participants stated that it would be beneficial to measure practice time per day.
+            \item They want to set time frames for when a piece should be proficiently played.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection*{Implementation:}
+The project should be submitted as a public page, hosted through a service like Netlify, Vercel, or GitHub Pages. Also, submit your source code as a compressed file and a GitHub link along with a link to the hosted project.
+
+\subsubsection*{Level 1 Implementation Goals: Creating an entry (Start here)}
+\begin{enumerate}
+    \item A section of your page should include overview information about your user and the current date/time.
+    \item This interface should include the ability to track or log at least 6 different activities.
+    \item There should be some way for the user to save or submit their entries for the day.
+\end{enumerate}
+
+\subsubsection*{Level 2 Implementation Goals: Viewing previous entries (do this next)}
+\begin{enumerate}
+    \item Allow the user to move from entering their activities for the day to viewing previous entries.
+    \item The user should have the ability to edit a previous entry.
+\end{enumerate}
+
+\subsubsection*{Level 3 Implementation Goals: Customization, goal setting, and seeing an overview (do this next)}
+\begin{enumerate}
+    \item Enable the user to set goals for their activities.
+    \item Show a visual overview of the user's log and journaling activities.
+    \item Allow the user to customize their journaling and logging experience.
+\end{enumerate}
+
+\subsubsection*{Level 4 Implementation Goals:}
+\begin{itemize}
+    \item Pursue additional goals based on design requirements not covered in Levels 1-3.
+\end{itemize}
+
+\section*{All Levels: Design Principles}
+Elements should be presented in a clear and consistent layout using good graphic design principles. 
+
+\section*{Implementation Note on Incomplete and Broken Features:}
+If necessary, it is recommended to submit a professional version of the application that looks and functions well, even if it has fewer features.
+
+\section*{Documentation:}
+The documentation should be publicly available through your portfolio page. It should include:
+\begin{itemize}
+    \item Description of the project
+    \item Presenting your design work (interviewing, sketching, feedback)
+    \item Explanation of your interface and its features
+    \item Description of your implementation
+    \item Future work
+    \item A 2-3 minute demo video of the interface in action
+\end{itemize}
+
+\section*{Presentation:}
+Presentation will be either 1-minute lightning talks or small group discussions, depending on class size.
+
+
+\end{document}

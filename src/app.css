@@ -1,0 +1,56 @@
+/* app.css */
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 20%;
+  background-color: #f4f4f4;
+  padding: 1em;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main {
+  flex-grow: 1;
+  padding: 2em;
+  background-color: #fff;
+}
+
+/* Card Styling */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.5em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+  max-width: 400px;
+}
+
+h2, h3 {
+  margin-bottom: 1em;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.task input {
+  margin-right: 1em;
+}
+
+.checkbox-wrapper {
+  display: block; 
+  margin-bottom: 10px;
+}
+
+.top-bar {
+  background-color: #333;
+  color: rgb(255, 255, 255); /*text color */
+  padding: 20px 20px; /* space between edge of the shape and the text. */
+  height: 100px;
+  width: 100vw; /* i guess 100 vw means 100% of the view point! */
+}
