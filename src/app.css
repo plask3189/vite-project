@@ -5,12 +5,7 @@
   height: 100vh;
 }
 
-.sidebar {
-  width: 20%;
-  background-color: #f4f4f4;
-  padding: 1em;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
+
 
 .main {
   flex-grow: 1;
@@ -21,11 +16,10 @@
 /* Card Styling */
 .card {
   border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1.5em;
+  padding: 1em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fafafa;
-  max-width: 400px;
+  max-width: 60%;
 }
 
 h2, h3 {
@@ -53,4 +47,22 @@ h2, h3 {
   padding: 20px 20px; /* space between edge of the shape and the text. */
   height: 100px;
   width: 100vw; /* i guess 100 vw means 100% of the view point! */
+}
+
+textarea{
+  max-width: 80%;
+}
+
+.progress_area {
+  background-color: #901111;
+  color: rgb(0, 0, 0); /*text color */
+  padding: 20px 20px; /* space between edge of the shape and the text. */
+  
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.5em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  max-width: 60%;
 }

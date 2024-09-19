@@ -7,6 +7,9 @@
     activeDays: 5
   };
 
+  import Progress from './Progress.svelte';
+  let progress;
+
   let selectedDate = new Date().toISOString().slice(0, 10);
   let selection = [];
   let group = 1;
@@ -45,21 +48,19 @@
     pracMin = 30;
     notes = "";
   }
-  
 
 
 </script>
+
+
+
 <div class = "top-bar"> 
   <div> <User {user} /></div>
 </div>
+
+
+<div class ="card, progress_area"> <Progress {progress} /></div>
 <div class="container">
-  
-  <div class="sidebar">
-    
-    <h2>Actions</h2>
-    
-    <p> Update Goals </p>
-  </div>
   
   <div class="main">
     <h2>Today</h2>
@@ -94,9 +95,13 @@
       <h3>Notes</h3>
       
       <textarea bind:value={notes} rows="5" cols="40" placeholder="Enter Any Practice Notes..."></textarea>
-      <button on:click={addEntry}>Add Entry</button>
+      <div> 
+        <p>      </p>
+        <button on:click={addEntry}>Add Entry</button>
+      </div>
       
     </div>
+    
     <History {history} />
   </div>
 </div>

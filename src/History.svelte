@@ -9,14 +9,21 @@
   ...history.filter(day => day.date !== findDate) // adds the rest of the history (excluding the matched day)
 
 ];
-function editHistoryDay(day){
-  alert(`Edited ${day}`);
-}
+let inst = "";
 
+function handleChangeText(buttonName, day) {
+  const result = prompt("Please enter some text:");
+  const button = document.getElementById(buttonName);
+  button.textContent = `${result}`;
+  alert(`You edited ${day}`);
+  }
+
+  
 </script>
 
 <div class="history">
   <h2>History</h2>
+
   <h3>Select Date To Highlight</h3>
     <input type="date" bind:value={findDate} />
   <div class="history-cards">
@@ -25,23 +32,23 @@ function editHistoryDay(day){
     
      <!-- so it is normal card except when day.date === findDate-->
       <div class="history-card {day.date === findDate ? 'highlighted-card' : ''}">
-       
-        <!-- anonymous arrow func passes day to editHistoryDay only when button clicked -->
-        <button on:click={() => editHistoryDay(day.date)}>Edit</button> 
-        
         <h3>{day.date}</h3>
-        {#each day.activities as activity}
-          <li>{activity}</li>
-        {/each}
+
+        <h4> Practice Session Contents: </h4>
+        <button class = "card_items" id={`activ-${day.date}`} on:click={() => handleChangeText(`activ-${day.date}`, day.date)}>{day.activities}</button>
         
-        {#each day.instrument as instrument}
-          {instrument}
-        {/each}
+        <h4> Instrument: </h4>
+        <button class = "card_items" id={`inst-${day.date}`} on:click={() => handleChangeText(`inst-${day.date}`, day.date)}>{day.instrument}</button>
         <!--{#each day.practiceM as day} -->
         
-        <li> Practice Minutes: {day.practiceMinutes} </li>
-        <li> Notes: {day.notes} </li>
+        <h4> Practice Minutes: </h4> 
+         <!--ewwwww anonymous arrow func passes day to editHistoryDay only when button clicked -->
+        <button class = "card_items" id={`pracMin-${day.date}`} on:click={() => handleChangeText(`pracMin-${day.date}`, day.date)}>{`${day.practiceMinutes}`}</button>
 
+        <h4> Notes: </h4>
+        <button class = "card_items" id={`notes-${day.date}`} on:click={() => handleChangeText(`notes-${day.date}`, day.date)}>{`${day.notes}`}</button>
+
+    
         
       </div>
     {/each}
@@ -80,11 +87,15 @@ function editHistoryDay(day){
       margin-bottom: 0.5em;
     }
   
-    .history-card li {
-      margin-bottom: 0.5em;
-    }
     .highlighted-card {
     background-color: #aec7ae; /* Highlighted color */
   }
+
+    .card_items{
+      cursor:pointer;
+      background-color: #fafafa;
+      border-width: 0;
+      display: inline-block;
+    }
   </style>
   
