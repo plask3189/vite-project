@@ -1,16 +1,10 @@
 /* app.css */
 
 .container {
-  display: flex;
-  height: 100vh;
-}
-
-
-
-.main {
-  flex-grow: 1;
-  padding: 2em;
-  background-color: #fff;
+  display: flex;         /* Enables flexbox */
+  gap: 1em;              /* Adds space between the cards */
+  justify-content: space-between; /* Ensures there's even space between them */
+  width: 100%;           /* Ensures the container takes up the full width */
 }
 
 /* Card Styling */
@@ -20,7 +14,19 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fafafa;
   max-width: 60%;
+  flex-grow: 1;
 }
+
+.prog_card {
+  border: 1px solid #ccc;
+  padding: 1em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+  flex-grow: 1;
+  max-width: 30%;
+}
+
+
 
 h2, h3 {
   margin-bottom: 1em;
@@ -41,28 +47,22 @@ h2, h3 {
   margin-bottom: 10px;
 }
 
+
+
 .top-bar {
-  background-color: #333;
-  color: rgb(255, 255, 255); /*text color */
-  padding: 20px 20px; /* space between edge of the shape and the text. */
-  height: 100px;
-  width: 100vw; /* i guess 100 vw means 100% of the view point! */
+  color: rgb(9, 9, 9); /* Text color */
+  /*position: fixed;     /* Keeps the div in a fixed position even when scrolling */
+  top: 0;              /* Aligns the div to the top of the page */
+  left: 0;             /* Aligns the div to the left side of the page */
+  right: 0;            /* Ensures the div spans the full width */
+  width: 100%;         /* Makes the div span the entire width of the page */
+  background-color: #ffffff; /* Example background color */
+  padding: 10px;       /* Adds some padding inside the div */
+  box-sizing: border-box; /* Ensures padding doesn't affect the div width */
 }
+
 
 textarea{
   max-width: 80%;
 }
 
-.progress_area {
-  background-color: #901111;
-  color: rgb(0, 0, 0); /*text color */
-  padding: 20px 20px; /* space between edge of the shape and the text. */
-  
-  float: right;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1.5em;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
-  max-width: 60%;
-}

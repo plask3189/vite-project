@@ -1,4 +1,8 @@
 # Svelte + Vite
+installed this as well: npm install chart.js
+
+
+
 
 This template should help get you started developing with Svelte in Vite.
 

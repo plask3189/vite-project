@@ -8,7 +8,7 @@
 
 <script>
     export let user;
-   
+    
     // ----------------------------------
     let currentDateTime = '';
     function displayDateTime() {
@@ -48,10 +48,11 @@
 <div class= "user_info_area"  >
   <button class= "img_button img_for_user" on:click={showAlert}>
    <img src="/src/img1.png" alt="user" class= "img_for_user" >
+   <p> {user.name}</p>
   </button>
 
-  <p> {user.name}</p>
-  <p>{currentDateTime}</p>
+  
+
 </div>
 
 
@@ -59,10 +60,11 @@
 <style>
 
 .img_for_user{
-  max-width: 70px; 
+  max-width: 50px; 
   height: auto; 
   border-radius: 100px; /* make it a circle-ish */
-    
+  margin-right: 5px;
+  margin-bottom: 0;
 }
 .img_for_user:hover {
     opacity: 0.7; /* semi-transparent when hovered */
@@ -71,11 +73,15 @@
     background: none; 
     border: none; 
     padding: 0; 
+    font-size: 0.7em;
 }
 .user_info_area{
   float: right;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.7em;
+  margin-top:0;
+  margin: 0;
+  padding: 0; 
 }
 </style>
 

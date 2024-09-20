@@ -1,5 +1,6 @@
 <script>
-  export let history = [];
+  import { history } from './history.js';  
+  
   //let findDate;
   let findDate;
 
@@ -17,6 +18,7 @@ function handleChangeText(buttonName, day) {
   button.textContent = `${result}`;
   alert(`You edited ${day}`);
   }
+
 
   
 </script>
