@@ -2,7 +2,7 @@
   import { onMount, afterUpdate } from 'svelte';
   import Chart from 'chart.js/auto';
 
-  
+  let data_labels = []
   export let history;
   
   let barChart, pieChart;
@@ -21,23 +21,28 @@
           return acc;
       }, {});
   }
-
+  const reddish = 'rgba(119, 117, 111, 0.8)'
+  const greenish = 'rgba(118, 98, 94, 0.5)'
+  const green = 'rgba(118, 98, 94, 1)'
+  const bluish = 'rgba(134, 134, 139, 0.6)'
+  const blue = 'rgba(134, 134, 139, 1)'
+  const whitish= 'rgba(232, 230, 225, 1)'
   function createPlot() {
     const ctx = document.getElementById('practiceMinutesChart').getContext('2d');
     if (barChart) barChart.destroy(); 
     const backgroundColors = newPracMinList.map(minutes => 
-        minutes > 50 ? 'rgba(75, 192, 75, 0.6)' : 'rgba(255, 140, 132, 0.8)'
+        minutes > 50 ? reddish : greenish
     );
+    data_labels = ["< Goal", "> Goal"]
 
     barChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: history.map(day => day.date),
             datasets: [{
-                label: 'Less than Goal',
+                label: "Practice Time < Goal",
                 data: newPracMinList,
-                backgroundColor: backgroundColors, // Use the determined colors
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: backgroundColors,
                 borderWidth: 0.5
             }]
         },
@@ -64,20 +69,14 @@
               datasets: [{
                   data: data,
                   backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
+                    bluish,
+                      greenish,
+                      green,
+                      blue,
+                    
                   ],
                   borderColor: [
-                      'rgba(255, 99, 132, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)'
+                    whitish
                   ],
                   borderWidth: 1
               }]
@@ -112,5 +111,32 @@
   });
 </script>
 
-<canvas id="practiceMinutesChart" width="300" height="300"></canvas>
-<canvas id="skillsPieChart" width="100" height="100"></canvas>
+<div class="performance_card"> 
+  <div class="performance_data">
+  <canvas id="practiceMinutesChart" width="300" height="300"></canvas>
+  </div>
+</div>
+
+<div class="performance_card"> 
+  <div class="performance_data">
+  <canvas id="skillsPieChart" width="100" height="100"></canvas>
+</div>
+</div>
+<style>
+
+.performance_card {
+  font-size: 1em;
+  border:  1px solid #ccc;
+  padding: 0em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #E8E6E1;
+  width: 100%;
+  border-radius: 10px;
+  
+  margin-top: 0.5em;
+}
+.performance_data{
+  
+  margin:0.53em;
+}
+</style>

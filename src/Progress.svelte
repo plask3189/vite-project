@@ -61,12 +61,9 @@
                         </li>
                     {/each}
                 </ul>
-
-                <!-- Buttons to save or cancel editing -->
                 <button on:click={stopEditing}>Save</button>
                 <button on:click={stopEditing}>Cancel</button>
             {:else}
-                <!-- Display goals in a read-only format -->
                 <div class="current_goals_area"></div>
                 <h3>Practice Time Goal</h3>
                 <p>Practice {goals_obj.practiceTimeGoalPerDay} minutes per day</p>
@@ -96,9 +93,9 @@
   font-size: 1em;
   cursor: pointer;
   border: 1px solid #ccc;
-  padding: 0.5em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fafafa;
+  background-color: #E8E6E1;
+  color: #222022;
   width: 100%;
   border-radius: 10px;
 }
@@ -119,7 +116,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: #77756F;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -141,8 +138,8 @@ h2 {
 }
 
 .no-bullets {
-    list-style-type: none;  /* Removes bullet points */
-    padding-left: 0;        /* Optional: Removes the default indentation */
+    list-style-type: none; 
+    padding-left: 0;
 }
 
 

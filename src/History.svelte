@@ -66,28 +66,30 @@ function handleChangeText(buttonName, day) {
 
   <style>
     .history {
+      color:#222022;
       padding: 0.5em;
-      margin-top: 2em;
-      background-color: #607d67;
-      border-radius: 10px; /* to make the edges kinda curved. very nice */ 
-      box-shadow: 0 4px 6px rgba(4, 3, 3, 0.1);
+      margin: 2em;
+      background-color: #E8E6E1;
+      width: 100%;
+      
     }
   
     .history-cards {
       display: flex;
       flex-wrap: wrap;
-      margin-left: 2em;
-      margin-bottom: 2em;
       gap: 1em;
+      
     }
   
     .history-card {
+      margin-top: 2em;
+      color: #E8E6E1;
       border: 1px solid #ccc;
       border-radius: 10px; /* to make the edges kinda curved. very nice */ 
       padding: 1em;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      background-color: #fafafa;
-      width: 200px;
+      background-color: #76625E;
+      width: 20%;
     }
   
     .history-card h3 {
@@ -95,14 +97,15 @@ function handleChangeText(buttonName, day) {
     }
   
     .highlighted-card {
-    background-color: #aec7ae; /* Highlighted color */
+    background-color: #77756F; /* Highlighted color */
   }
 
     .card_items{
       cursor:pointer;
-      background-color: #fafafa;
+      background-color: transparent;
       border-width: 0;
       display: inline-block;
+      color: #E8E6E1; 
     }
   </style>
   
