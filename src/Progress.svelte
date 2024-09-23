@@ -1,8 +1,10 @@
 <script>
+
+
     let showModal = false;
     let isEditing = false;
-    let goals_obj = {
-        practiceTimeGoalPerDay: 30,
+     let goals_obj = {
+        practiceTimeGoalPerDay: 50,
         skills: {
             MyPiece: 7,
             Scales: 3,
@@ -10,6 +12,7 @@
             Positions: 5
         }
     };
+    
     function openModal() {
         showModal = true;
     }
@@ -82,6 +85,10 @@
         </div>
     </div>
 {/if}
+
+
+
+
 
 <style>
 

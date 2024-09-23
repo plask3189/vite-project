@@ -1,9 +1,12 @@
 <script>
-  import { history } from './history.js';  
+    import App from './App.svelte';
+  
+    export let history;
+  let historyData = []; 
   
   //let findDate;
   let findDate;
-
+  $: console.log("History:", history)
   $: reorderedHistory = [
   ...history.filter(day => day.date === findDate), // adds the day that matches findDate to the top
 
@@ -22,6 +25,8 @@ function handleChangeText(buttonName, day) {
 
   
 </script>
+
+
 
 <div class="history">
   <h2>History</h2>
