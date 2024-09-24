@@ -2,15 +2,14 @@
 
 .container {
   display: flex;
-  gap: 1em;
+  gap: 0.5em;
   justify-content: space-between;
   width: 100%;
   background-color: #77756F;
-  
+  margin-top:0px;
 }
 button{
   background-color: rgba(232, 230, 225, 0.7); 
-
   border-radius: 4px;
   border:none;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
@@ -20,16 +19,16 @@ button{
 }
 .card { /* the practice session card*/
   margin: 1em;
-  
   border-radius: 15px; /* to make the edges kinda curved*/
   color: #E8E6E1; /* Text color */
-  padding: 1.5em;
+  padding: 1em;
   box-shadow: 5px 5px 15px rgba(58, 40, 40, 0.3);
-  background-color: #86868B;
+  background-color: var(--entry-card);
   max-width: 80%;
   flex-grow: 1;
   padding-left: 1.5em;
-
+  margin-top:0.5px;
+  max-height: 650px;
 }
 
 .prog_card {
@@ -38,16 +37,21 @@ button{
   margin-left: 0.5em;
   padding: 1em;
   
-  background-color: #76625E;
+  background-color: var(--progress-card);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   flex-grow: 1;
   max-width: 25%;
+  max-height: 650px;
   color: #E8E6E1;
   align-items: center;
+  margin-top:0.5px;
 }
 
 h1{
   color: #E8E6E1;
+  margin-bottom: 0px;
+  border-top: 0px;
+  margin-top: 0px;
 }
 
 
@@ -76,21 +80,19 @@ h2, h3 {
   float: left;
   text-align: center;
   font-size: 1em;
-  margin-top:0;
-  margin: 0;
-  padding: 0; 
+  margin:10px;
+  display: flex;
+  align-items: center;  
+  height: 100%;
 }
 
 .top-bar {
   background-color: #77756F;
-  /*position: fixed;   */
-  top: 0;         
-  left: 0;            
-  right: 0;         
-  width: 100%;     
-
-  padding: 10px;   
+  /*position: fixed;   */      
+  width: 100%;
   box-sizing: border-box; 
+  margin:2px;
+  height: 80px;
 }
 
 .notes_area{
@@ -107,11 +109,11 @@ textarea{
   .title-bar {
     
     display: flex;
-    align-items: center; /* Aligns button and title vertically */
+    align-items: center; 
   }
 
   h3 {
-    margin-right: 10px; /* Add some space between the title and the button */
+    margin-right: 10px;
   }
 
 
@@ -137,7 +139,7 @@ textarea{
   
 } */
 body{
-  background-color: #77756F;
+  background-color: var(--bg-color);
   padding: 0;
     margin: 0;
     font-family: "Optima", sans-serif;
@@ -170,15 +172,15 @@ body{
 }
 
 .submit_button{
-  background-color: #E8E6E1;
-  color: #222022;
-  padding: 0.8em;
-  margin: 0.4em;
-  font-size: 1em;
-  float: right;
+float: right;
+    padding: 0.7em 1em;
+    color: #222022;
+    background-color: #E8E6E1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
 }
-
-
 
 select {
   background-color: #E8E6E1; 
@@ -202,3 +204,9 @@ input[type="range"] {
   border-radius: 5px;
 }
 
+:root {
+  --bg-color: #77756F;
+  --progress-card: #76625E;
+  --entry-card: #86868B;
+
+}

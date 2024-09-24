@@ -29,7 +29,7 @@ function handleChangeText(buttonName, day) {
 
 
 <div class="history">
-  <h2>History</h2>
+  <h1>History</h1>
 
   <h3>Select Date To Highlight</h3>
     <input type="date" bind:value={findDate} />
@@ -97,7 +97,7 @@ function handleChangeText(buttonName, day) {
     }
   
     .highlighted-card {
-    background-color: #77756F; /* Highlighted color */
+    background-color: #77756F; 
   }
 
     .card_items{
@@ -106,6 +106,11 @@ function handleChangeText(buttonName, day) {
       border-width: 0;
       display: inline-block;
       color: #E8E6E1; 
+    }
+
+
+  h1{
+      color:#222022;
     }
   </style>
   

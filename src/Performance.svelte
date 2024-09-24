@@ -1,7 +1,8 @@
 <script>
   import { onMount, afterUpdate } from 'svelte';
   import Chart from 'chart.js/auto';
-
+  import ChartDataLabels from 'chartjs-plugin-datalabels';
+  Chart.register(ChartDataLabels);
   let data_labels = []
   export let history;
   
@@ -9,6 +10,7 @@
   let newPracMinList = [];
   let activityCounts, labels, data;
 
+    // in order to calculate user metrics
   function extractDateAndPracticeMinutes() {
       newPracMinList = history.map(historicalDay => historicalDay.practiceMinutes);
   }
@@ -43,7 +45,7 @@
                 label: "Practice Time < Goal",
                 data: newPracMinList,
                 backgroundColor: backgroundColors,
-                borderWidth: 0.5
+                
             }]
         },
         options: {
@@ -58,39 +60,45 @@
 }
 
 
+//https://www.chartjs.org/docs/latest/charts
+function createPieChart() {
+    const ctx = document.getElementById('skillsPieChart').getContext('2d');
+    if (pieChart) pieChart.destroy(); 
 
-  function createPieChart() {
-      const ctx = document.getElementById('skillsPieChart').getContext('2d');
-      if (pieChart) pieChart.destroy(); // Destroy the previous chart instance if it exists
-      pieChart = new Chart(ctx, {
-          type: 'pie',
-          data: {
-              labels: labels,
-              datasets: [{
-                  data: data,
-                  backgroundColor: [
-                    bluish,
-                      greenish,
-                      green,
-                      blue,
-                    
-                  ],
-                  borderColor: [
-                    whitish
-                  ],
-                  borderWidth: 1
-              }]
-          },
-          options: {
-              responsive: true,
-              plugins: {
-                  legend: {
-                      position: 'top'
-                  }
-              }
-          }
-      });
-  }
+    pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: [bluish, greenish, green, blue],
+                borderColor: [whitish],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true, 
+            plugins: {
+                legend: {
+                    display: false, 
+                },
+                datalabels: {
+                    color: '#fff', 
+                    formatter: (value, context) => {
+                      
+                        return context.chart.data.labels[context.dataIndex];
+                    },
+                    font: {
+                        size: 10, 
+                        
+                    }
+                }
+            }
+        }
+    });
+}
+
 
   // Update charts when history changes
   $: {
@@ -113,13 +121,13 @@
 
 <div class="performance_card"> 
   <div class="performance_data">
-  <canvas id="practiceMinutesChart" width="300" height="300"></canvas>
+  <canvas id="practiceMinutesChart" width="300" height="300" ></canvas>
   </div>
 </div>
 
 <div class="performance_card"> 
   <div class="performance_data">
-  <canvas id="skillsPieChart" width="100" height="100"></canvas>
+  <canvas id="skillsPieChart" width="200" height="200" ></canvas>
 </div>
 </div>
 <style>
@@ -131,12 +139,25 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #E8E6E1;
   width: 100%;
+  max-height: 100%;
   border-radius: 10px;
-  
+  align-content: center;
   margin-top: 0.5em;
 }
 .performance_data{
-  
+  display: flex;
+  justify-content: center;  
+  align-items: center;   
   margin:0.53em;
+  align-content: center;
 }
+
+#skillsPieChart {
+    width: 150px !important; 
+    height: 150px !important; 
+
+}
+
+
+
 </style>

@@ -1,17 +1,16 @@
 <script>
   import { onMount } from 'svelte';
   import History from './History.svelte'; 
-
-  // let history;
-
-  export let history = [
+  export let history = [ // dummy data:
     { date: '2024-09-01', activities: ['Scales', 'Arpeggios'], instrument: 'Harp', practiceMinutes: 40, notes: 'Chopin' },
     { date: '2024-09-02', activities: ['My piece', 'Positionings'], instrument: 'Harp', practiceMinutes: 42, notes: 'Tchaikovsky' },
     { date: '2024-09-03', activities: ['Arpeggios', 'My piece'], instrument: 'Flute', practiceMinutes: 45, notes: 'Chopin' },
     { date: '2024-09-04', activities: ['Arpeggios', 'My piece'], instrument: 'Harp', practiceMinutes: 45, notes: 'Chopin' },
     { date: '2024-09-05', activities: ['My piece'], instrument: 'Flute', practiceMinutes: 65, notes: 'Chopin' },
     { date: '2024-09-06', activities: ['My piece'], instrument: 'Harp', practiceMinutes: 70, notes: 'Chopin' },
-    { date: '2024-09-07', activities: ['Arpeggios', 'Positionings', 'My piece'], instrument: 'Harp', practiceMinutes: 80, notes: 'Chopin' }
+    { date: '2024-09-07', activities: ['Arpeggios', 'Positionings', 'My piece'], instrument: 'Harp', practiceMinutes: 80, notes: 'Chopin' },
+    { date: '2024-09-08', activities: ['Positionings', 'Scales'], instrument: 'Harp', practiceMinutes: 75, notes: 'Chopin' },
+    { date: '2024-09-09', activities: ['Positionings', 'Scales'], instrument: 'Harp', practiceMinutes: 75, notes: 'Rachmoninoff' }
 ];
 
   import Performance from './Performance.svelte';
@@ -19,13 +18,10 @@
   let user = {
     name: 'Kate Plas',
     startDate: new Date('2024-01-20'),
-    activeDays: 5
+    activeDays: history.length,
   };
 
   import Progress from './Progress.svelte';
-  import { list } from 'plotly.js-dist';
-  let progress;
-
   let selectedDate = new Date().toISOString().slice(0, 10);
   let selection = [];
   let group = 1;
@@ -49,14 +45,11 @@
       practiceMinutes: pracMin,
       notes: notes,
     };
-  
     history = [...history, newEntry];// adds new entry to the history array
-
     // reset data
     selection = [];
     pracMin = 30;
     notes = "";
-
   }
 
   let currentDateTime = '';
@@ -66,20 +59,52 @@
     }
     displayDateTime();
     setInterval(displayDateTime, 1000);
+    
+     // ---------------------------------theme -------------------------------------------
+     let themeList = [
+      {name: 'OG Theme',
+      progressCardColor: '#76625E',
+      entryCardColor: '#86868B',},
+
+    {name: 'Cheerier Theme',
+      progressCardColor: '#BAA687',
+      entryCardColor: '#D7A573',},
+      
+      {name: 'Chill Theme',
+      entryCardColor: '#CE6B61',
+      progressCardColor: '#A3917F',}
+    ];
+  
+    let selectedTheme = themeList[0]; 
+    let previousTheme = {progressCardColor: '', entryCardColor: ''};
+
+  function editTheme() {
+    previousTheme.progressCardColor = getComputedStyle(document.documentElement).getPropertyValue('--progress-card');
+    previousTheme.entryCardColor = getComputedStyle(document.documentElement).getPropertyValue('--entry-card');
+    // set the properties of the new theme
+    document.documentElement.style.setProperty('--progress-card', selectedTheme.progressCardColor);
+    document.documentElement.style.setProperty('--entry-card', selectedTheme.entryCardColor);
+  }
+
+  // undo theme. 
+  function undoThemeChange() {
+    document.documentElement.style.setProperty('--progress-card', previousTheme.progressCardColor);
+    document.documentElement.style.setProperty('--entry-card', previousTheme.entryCardColor);
+  } // ----------------------------------------------------------------------------
+
+
 
 // ---------------------------------to add or remove entry options ----------------------- 
 let showSelectInstrument= true;
 function removeSelectInstrument(){
   showSelectInstrument = false; // so if it is false then the div will not show. 
+  alert(`Removed Instrument Selection.`);
 }
-
 let showNotesSection= true;
 function removeNotesSection(){
   showNotesSection = false; // so if it is false then the div will not show. 
+  alert(`Removed Notes Section.`);
 } // ------------------------------------------------------------------------
-
-
-
 
 // ---------------------------------skills -----------------------
 let skills_list = ["My piece", "Scales", "Arpeggios", "Positionings"];
@@ -96,18 +121,23 @@ function removeSkill(index){
 }// ------------------------------------------------------------------------
 
 </script>
+<select bind:value={selectedTheme} on:change= {editTheme}>
+  {#each themeList as themeOption}
+    <option value={themeOption}>{themeOption.name}</option>
+  {/each}
+</select>
+<button on:click={undoThemeChange}>Undo Theme Change</button>
 
 
 <div class = "top-bar"> 
   <div class = "for_title">
     <h1 style="text-indent: 0.5em;" >Musical Instrument Practice Tracker</h1>
   </div>
-  <div> <User {user} /></div>
+<User {user} />
 </div>
 
 
 <div class="container">
-
     <div class="card">
       <h2>Submit a Practice Session Entry </h2>
       <p style="text-indent: 2em;" > Current Date: {currentDateTime} </p>
@@ -152,7 +182,7 @@ function removeSkill(index){
           </div>
         {/each}
 
-        <!-- Add a new skill:  -->
+        <!--add a new skill:  -->
         <div class="add-skill">
           <input type="text" bind:value={new_skill} placeholder="Enter a new skill" />
           <button on:click={() => addSkill()}>+</button>
@@ -179,16 +209,17 @@ function removeSkill(index){
       
     </div>
     <div class="prog_card"> 
+      <!-- Includes goals -->
       <h2> Progress </h2>
       <Progress />
 
+      <!-- the bar plot and pie chart for historical performance. -->
       <h3> Performance Overview </h3>
-      
       <Performance {history}/>
     </div>
     
   
 </div>
 <div class="big_history_section"> 
-<History {history}/>
+<History {history}/> <!-- the practice entry history with cards to reflect each session. Enables search history by day-->
 </div>

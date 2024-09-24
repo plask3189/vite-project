@@ -29,7 +29,7 @@
 </script>
 
 <button class="goals_button" on:click={openModal}>
-    <h4> View and Edit Goals </h4>
+    <p> View and Edit Goals </p>
 </button>
 
 
@@ -92,12 +92,14 @@
 .goals_button {
   font-size: 1em;
   cursor: pointer;
-  border: 1px solid #ccc;
+  border: 0px solid #ccc;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #E8E6E1;
   color: #222022;
   width: 100%;
   border-radius: 10px;
+  margin:0px;
+  padding: 0px;
 }
 
 .modal-background {

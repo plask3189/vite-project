@@ -37,11 +37,8 @@
         return percentActiveDaysS;
     }
     $: percentActive = percentOfTimeUsingInterface(user.activeDays)
-
-
-
     function showAlert() {
-        alert(`Active days since begining: ${user.activeDays},    Percent active: ${percentActive}%`);
+        alert(`Active days since begining: ${user.activeDays},   Days since start: ${totalDaysBeingUser},      Percent active: ${percentActive}%`);
 
     }
 </script>
@@ -53,27 +50,26 @@
   </button>
  
 </div>
-
-
-
 <style>
 
-.user_info_area {
-  display: flex; 
-  align-items: center;
-  font-size: 1.2em;
-  margin-top: 0;
-  padding: 0;
+
+.user_info_area{
   float: right;
+  text-align: center;
+  font-size: 1.1em;
+  margin:10px;
+  display: flex;
+  align-items: center;  
+  height: 100%;
   color: #E8E6E1;
 }
+
 
 .img_for_user {
   max-width: 60px;
   height: auto;
   border-radius: 50%;       
-  margin-right: 10px;
-  float:right;
+  margin-bottom:0px;
 }
 
 .img_button {
@@ -81,8 +77,10 @@
   background: none;
   border: none;
   margin:1.5em;
-  padding: 0;
+  padding: 0px;
   box-shadow: none;
+  margin-bottom: 0px;
+  margin-top: 1.5px;
 }
 
 p {

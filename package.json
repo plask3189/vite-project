@@ -16,6 +16,7 @@
   "dependencies": {
     "chart.js": "^4.4.4",
     "chartjs-plugin-annotation": "^3.0.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "plotly.js-dist": "^2.35.2"
   }
 }
